@@ -20,7 +20,7 @@ td    { vertical-align: top; }
 }
 .border-top{
 	border-top: solid 1px #bdc3c7;
-	
+
 }
 .border-left{
 	border-left: solid 1px #bdc3c7;
@@ -51,33 +51,36 @@ table.page_footer {width: 100%; border: none; background-color: white; padding: 
     </page_footer>
 	<?php include("encabezado_factura.php");?>
     <br>
-    
 
-	
+
+
     <table cellspacing="0" style="width: 100%; text-align: left; font-size: 11pt;">
         <tr>
            <td style="width:50%;" class='midnight-blue'>FACTURAR A</td>
         </tr>
 		<tr>
            <td style="width:50%;" >
-			<?php 
+			<?php
 				$sql_cliente=mysqli_query($con,"select * from clientes where id_cliente='$id_cliente'");
 				$rw_cliente=mysqli_fetch_array($sql_cliente);
-				echo $rw_cliente['nombre_cliente'];
+				echo "Nombre y Apellido : " . $rw_cliente['nombre_cliente'];
 				echo "<br>";
-				echo $rw_cliente['direccion_cliente'];
-				echo "<br> Teléfono: ";
-				echo $rw_cliente['telefono_cliente'];
-				echo "<br> Email: ";
+                echo "Cuil/Cuit : " . $rw_cliente['cuil_cuit_cliente'];
+				echo "<br>";
+				echo "Dirección : " . $rw_cliente['direccion_cliente'];
+				echo "<br>";
+				echo "Teléfono : " . $rw_cliente['telefono_cliente'];
+				echo "<br>";
+                echo "Email: ";
 				echo $rw_cliente['email_cliente'];
 			?>
-			
+
 		   </td>
         </tr>
-        
-   
+
+
     </table>
-    
+
        <br>
 		<table cellspacing="0" style="width: 100%; text-align: left; font-size: 11pt;">
         <tr>
@@ -87,7 +90,7 @@ table.page_footer {width: 100%; border: none; background-color: white; padding: 
         </tr>
 		<tr>
            <td style="width:35%;">
-			<?php 
+			<?php
 				$sql_user=mysqli_query($con,"select * from users where user_id='$id_vendedor'");
 				$rw_user=mysqli_fetch_array($sql_user);
 				echo $rw_user['firstname']." ".$rw_user['lastname'];
@@ -95,7 +98,7 @@ table.page_footer {width: 100%; border: none; background-color: white; padding: 
 		   </td>
 		  <td style="width:25%;"><?php echo date("d/m/Y", strtotime($fecha_factura));?></td>
 		   <td style="width:40%;" >
-				<?php 
+				<?php
 				if ($condiciones==1) {echo "Efectivo";}
 				elseif ($condiciones==2) {echo "Cheque";}
 				elseif ($condiciones==3) {echo "Transferencia bancaria";}
@@ -103,19 +106,19 @@ table.page_footer {width: 100%; border: none; background-color: white; padding: 
 				?>
 		   </td>
         </tr>
-		
-        
-   
+
+
+
     </table>
 	<br>
-  
+
     <table cellspacing="0" style="width: 100%; text-align: left; font-size: 10pt;">
         <tr>
             <th style="width: 10%;text-align:center" class='midnight-blue'>CANT.</th>
             <th style="width: 60%" class='midnight-blue'>DESCRIPCION</th>
             <th style="width: 15%;text-align: right" class='midnight-blue'>PRECIO UNIT.</th>
             <th style="width: 15%;text-align: right" class='midnight-blue'>PRECIO TOTAL</th>
-            
+
         </tr>
 
 <?php
@@ -129,7 +132,7 @@ while ($row=mysqli_fetch_array($sql))
 	$codigo_producto=$row['codigo_producto'];
 	$cantidad=$row['cantidad'];
 	$nombre_producto=$row['nombre_producto'];
-	
+
 	$precio_venta=$row['precio_venta'];
 	$precio_venta_f=number_format($precio_venta,2);//Formateo variables
 	$precio_venta_r=str_replace(",","",$precio_venta_f);//Reemplazo las comas
@@ -149,12 +152,12 @@ while ($row=mysqli_fetch_array($sql))
             <td class='<?php echo $clase;?>' style="width: 60%; text-align: left"><?php echo $nombre_producto;?></td>
             <td class='<?php echo $clase;?>' style="width: 15%; text-align: right"><?php echo $precio_venta_f;?></td>
             <td class='<?php echo $clase;?>' style="width: 15%; text-align: right"><?php echo $precio_total_f;?></td>
-            
+
         </tr>
 
-	<?php 
+	<?php
 
-	
+
 	$nums++;
 	}
 	$total_factura=number_format($sumador_total,2,'.','');
@@ -164,14 +167,14 @@ while ($row=mysqli_fetch_array($sql))
             <td style="widtd: 15%; text-align: right;"> <?php echo number_format($total_factura,2);?></td>
         </tr>
     </table>
-	
-	
-	
+
+
+
 	<br>
 	<div style="font-size:11pt;text-align:center;font-weight:bold">Gracias por su compra!</div>
-	
-	
-	  
+
+
+
 
 </page>
 

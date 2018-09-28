@@ -44,7 +44,7 @@ table.page_footer {width: 100%; border: none; background-color: white; padding: 
                     P&aacute;gina [[page_cu]]/[[page_nb]]
                 </td>
                 <td style="width: 50%; text-align: right">
-                    &copy; <?php echo "obedalvarado.pw "; echo  $anio=date('Y'); ?>
+                    &copy; <?php echo " "; echo  $anio=date('Y'); ?>
                 </td>
             </tr>
         </table>
@@ -96,10 +96,10 @@ table.page_footer {width: 100%; border: none; background-color: white; padding: 
 		  <td style="width:25%;"><?php echo date("d/m/Y");?></td>
 		   <td style="width:40%;" >
 				<?php 
-				if ($condiciones==1){echo "Efectivo";}
-				elseif ($condiciones==2){echo "Cheque";}
-				elseif ($condiciones==3){echo "Transferencia bancaria";}
-				elseif ($condiciones==4){echo "Crédito";}
+				if ($condiciones==1) {echo "Efectivo";}
+				elseif ($condiciones==2) {echo "Cheque";}
+				elseif ($condiciones==3) {echo "Transferencia bancaria";}
+				elseif ($condiciones==4) {echo "Crédito";}
 				?>
 		   </td>
         </tr>
@@ -137,7 +137,7 @@ while ($row=mysqli_fetch_array($sql))
 	$precio_total_f=number_format($precio_total,2);//Precio total formateado
 	$precio_total_r=str_replace(",","",$precio_total_f);//Reemplazo las comas
 	$sumador_total+=$precio_total_r;//Sumador
-	if ($nums%2==0){
+	if ($nums%2==0) {
 		$clase="clouds";
 	} else {
 		$clase="silver";
@@ -158,21 +158,9 @@ while ($row=mysqli_fetch_array($sql))
 	
 	$nums++;
 	}
-	$impuesto=get_row('perfil','impuesto', 'id_perfil', 1);
-	$subtotal=number_format($sumador_total,2,'.','');
-	$total_iva=($subtotal * $impuesto )/100;
-	$total_iva=number_format($total_iva,2,'.','');
-	$total_factura=$subtotal+$total_iva;
+	$total_factura=number_format($sumador_total,2,'.','');
 ?>
-	  
         <tr>
-            <td colspan="3" style="widtd: 85%; text-align: right;">SUBTOTAL <?php echo $simbolo_moneda;?> </td>
-            <td style="widtd: 15%; text-align: right;"> <?php echo number_format($subtotal,2);?></td>
-        </tr>
-		<tr>
-            <td colspan="3" style="widtd: 85%; text-align: right;">IVA (<?php echo $impuesto; ?>)% <?php echo $simbolo_moneda;?> </td>
-            <td style="widtd: 15%; text-align: right;"> <?php echo number_format($total_iva,2);?></td>
-        </tr><tr>
             <td colspan="3" style="widtd: 85%; text-align: right;">TOTAL <?php echo $simbolo_moneda;?> </td>
             <td style="widtd: 15%; text-align: right;"> <?php echo number_format($total_factura,2);?></td>
         </tr>

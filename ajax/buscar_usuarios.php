@@ -2,8 +2,8 @@
 
 	/*-------------------------
 	Autor: Federico Franco
-	Web: obedalvarado.pw
-	Mail: info@obedalvarado.pw
+	Web: 
+	Mail: 
 	---------------------------*/
 	/* Connect To Database*/
 	require_once ("../config/db.php");//Contiene las variables de configuracion para conectar a la base de datos

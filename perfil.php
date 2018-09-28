@@ -1,8 +1,8 @@
 <?php
 	/*-------------------------
 	Autor: Federico Franco
-	Web: obedalvarado.pw
-	Mail: info@obedalvarado.pw
+	Web: 
+	Mail: 
 	---------------------------*/
 	session_start();
 	if (!isset($_SESSION['user_login_status']) AND $_SESSION['user_login_status'] != 1) {
@@ -76,10 +76,6 @@
                         <td><input type="email" class="form-control input-sm" name="email" value="<?php echo $row['email']?>" ></td>
                       </tr>
 					  <tr>
-                        <td>IVA (%):</td>
-                        <td><input type="text" class="form-control input-sm" required name="impuesto" value="<?php echo $row['impuesto']?>"></td>
-                      </tr>
-					  <tr>
                         <td>Simbolo de moneda:</td>
                         <td>
 							<select class='form-control input-sm' name="moneda" required>
@@ -130,14 +126,9 @@
               </div>
             </div>
                  <div class="panel-footer text-center">
-                    
-                     
-                            <button type="submit" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-refresh"></i> Actualizar datos</button>
-                       
-                       
-                    </div>
-            
-          </div>
+                        <button type="submit" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-refresh"></i> Actualizar datos</button>                       
+                </div>
+          	</div>
         </div>
 		</form>
       </div>

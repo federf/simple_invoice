@@ -1,5 +1,5 @@
 <?php 
-	if ($con){
+	if ($con) {
 ?>
     <table cellspacing="0" style="width: 100%;">
         <tr>

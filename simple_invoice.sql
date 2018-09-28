@@ -136,7 +136,6 @@ CREATE TABLE IF NOT EXISTS `perfil` (
   `estado` varchar(100) NOT NULL,
   `telefono` varchar(20) NOT NULL,
   `email` varchar(64) NOT NULL,
-  `impuesto` int(2) NOT NULL,
   `moneda` varchar(6) NOT NULL,
   `logo_url` varchar(255) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
@@ -146,7 +145,7 @@ CREATE TABLE IF NOT EXISTS `perfil` (
 --
 
 INSERT INTO `perfil` (`id_perfil`, `nombre_empresa`, `direccion`, `ciudad`, `codigo_postal`, `estado`, `telefono`, `email`, `impuesto`, `moneda`, `logo_url`) VALUES
-(1, 'SISTEMAS WEB LA', 'Colonias Los Andes  #250', 'Moncagua', '3301', 'San Miguel', '+(503) 2682-555', 'info@obedalvarado.pw', 13, '$', 'img/1478792451_google30.png');
+(1, 'SISTEMAS WEB LA', 'Colonias Los Andes  #250', 'Moncagua', '3301', 'San Miguel', '+(503) 2682-555', '', 13, '$', 'img/1478792451_google30.png');
 
 -- --------------------------------------------------------
 

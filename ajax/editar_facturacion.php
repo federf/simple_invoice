@@ -1,8 +1,8 @@
 <?php
 	/*-------------------------
 	Autor: Federico Franco
-	Web: obedalvarado.pw
-	Mail: info@obedalvarado.pw
+	Web: 
+	Mail: 
 	---------------------------*/
 include('is_logged.php');//Archivo verifica que el usario que intenta acceder a la URL esta logueado
 $id_factura= $_SESSION['id_factura'];
@@ -67,23 +67,10 @@ $simbolo_moneda=get_row('perfil','moneda', 'id_perfil', 1);
 		</tr>		
 		<?php
 	}
-	$impuesto=get_row('perfil','impuesto', 'id_perfil', 1);
-	$subtotal=number_format($sumador_total,2,'.','');
-	$total_iva=($subtotal * $impuesto )/100;
-	$total_iva=number_format($total_iva,2,'.','');
-	$total_factura=$subtotal+$total_iva;
+	$total_factura=number_format($sumador_total,2,'.','');
 	$update=mysqli_query($con,"update facturas set total_venta='$total_factura' where id_factura='$id_factura'");
 ?>
 <tr>
-	<td class='text-right' colspan=4>SUBTOTAL <?php echo $simbolo_moneda;?></td>
-	<td class='text-right'><?php echo number_format($subtotal,2);?></td>
-	<td></td>
-</tr>
-<tr>
-	<td class='text-right' colspan=4>IVA (<?php echo $impuesto;?>)% <?php echo $simbolo_moneda;?></td>
-	<td class='text-right'><?php echo number_format($total_iva,2);?></td>
-	<td></td>
-</tr>
 <tr>
 	<td class='text-right' colspan=4>TOTAL <?php echo $simbolo_moneda;?></td>
 	<td class='text-right'><?php echo number_format($total_factura,2);?></td>

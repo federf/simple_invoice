@@ -2,8 +2,8 @@
 
 	/*-------------------------
 	Autor: Federico Franco
-	Web: obedalvarado.pw
-	Mail: info@obedalvarado.pw
+	Web: 
+	Mail: 
 	---------------------------*/
 	include('is_logged.php');//Archivo verifica que el usario que intenta acceder a la URL esta logueado
 	/* Connect To Database*/

@@ -10,7 +10,7 @@
 	}  else if (
 		!empty($_POST['mod_id']) &&
 		!empty($_POST['mod_nombre']) &&
-		$_POST['mod_estado']!="" 
+		$_POST['mod_estado']!=""
 	) {
 	/* Connect To Database*/
 	require_once ("../config/db.php");//Contiene las variables de configuracion para conectar a la base de datos
@@ -21,7 +21,7 @@
 	$email      =mysqli_real_escape_string($con,(strip_tags($_POST["mod_email"],ENT_QUOTES)));
 	$direccion  =mysqli_real_escape_string($con,(strip_tags($_POST["mod_direccion"],ENT_QUOTES)));
 	$estado     =intval($_POST['mod_estado']);
-	$cuil_cuit  =mysqli_real_escape_string($con,(strip_tags($_POST["cuil_cuit"],ENT_QUOTES)));
+	$cuil_cuit  =mysqli_real_escape_string($con,(strip_tags($_POST["mod_cuil_cuit"],ENT_QUOTES)));
 	$id_cliente =intval($_POST['mod_id']);
 	$sql        ="UPDATE clientes SET nombre_cliente='".$nombre."', telefono_cliente='".$telefono."', email_cliente='".$email."', direccion_cliente='".$direccion."', status_cliente='".$estado."', cuil_cuit_cliente='".$cuil_cuit."'  WHERE id_cliente='".$id_cliente."'";
 	$query_update = mysqli_query($con,$sql);
@@ -33,12 +33,12 @@
 	} else {
 		$errors []= "Error desconocido.";
 	}
-	
+
 	if (isset($errors)) {
 		?>
 		<div class="alert alert-danger" role="alert">
 			<button type="button" class="close" data-dismiss="alert">&times;</button>
-				<strong>Error!</strong> 
+				<strong>Error!</strong>
 				<?php
 					foreach ($errors as $error) {
 							echo $error;
@@ -49,7 +49,7 @@
 	}
 
 	if (isset($messages)) {
-		
+
 		?>
 		<div class="alert alert-success" role="alert">
 				<button type="button" class="close" data-dismiss="alert">&times;</button>

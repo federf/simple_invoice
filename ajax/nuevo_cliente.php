@@ -15,7 +15,7 @@
 		$cuil_cuit  =mysqli_real_escape_string($con,(strip_tags($_POST["cuil_cuit"],ENT_QUOTES)));
 		$estado     =intval($_POST['estado']);
 		$date_added =date("Y-m-d H:i:s");
-		$sql        ="INSERT INTO clientes (nombre_cliente, telefono_cliente, email_cliente, direccion_cliente, status_cliente, date_added, cuil_cuit_cliente) VALUES ('$nombre','$telefono','$email','$direccion','$estado','$date_added', '$date_added')";
+		$sql        ="INSERT INTO clientes (nombre_cliente, telefono_cliente, email_cliente, direccion_cliente, status_cliente, date_added, cuil_cuit_cliente) VALUES ('$nombre','$telefono','$email','$direccion','$estado','$date_added', '$cuil_cuit')";
 		$query_new_insert = mysqli_query($con,$sql);
 			if ($query_new_insert){
 				$messages[] = "Cliente ha sido ingresado satisfactoriamente.";
@@ -25,13 +25,13 @@
 		} else {
 			$errors []= "Error desconocido.";
 		}
-		
+
 		if (isset($errors)){
-			
+
 			?>
 			<div class="alert alert-danger" role="alert">
 				<button type="button" class="close" data-dismiss="alert">&times;</button>
-					<strong>Error!</strong> 
+					<strong>Error!</strong>
 					<?php
 						foreach ($errors as $error) {
 								echo $error;
@@ -41,7 +41,7 @@
 			<?php
 			}
 			if (isset($messages)){
-				
+
 				?>
 				<div class="alert alert-success" role="alert">
 						<button type="button" class="close" data-dismiss="alert">&times;</button>

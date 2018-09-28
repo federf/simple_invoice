@@ -19,6 +19,12 @@
 				  <input type="text" class="form-control" id="mod_nombre" name="mod_nombre"  required>
 					<input type="hidden" name="mod_id" id="mod_id">
 				</div>
+              </div>
+              <div class="form-group">
+				<label for="mod_cuil_cuit" class="col-sm-3 control-label">CUIL/CUIT</label>
+				<div class="col-sm-8">
+				  <input type="text" class="form-control" id="mod_cuil_cuit" name="mod_cuil_cuit"  required>
+				</div>
 			  </div>
 			   <div class="form-group">
 				<label for="mod_telefono" class="col-sm-3 control-label">Teléfono</label>
@@ -26,7 +32,7 @@
 				  <input type="text" class="form-control" id="mod_telefono" name="mod_telefono">
 				</div>
 			  </div>
-			  
+
 			  <div class="form-group">
 				<label for="mod_email" class="col-sm-3 control-label">Email</label>
 				<div class="col-sm-8">
@@ -39,7 +45,7 @@
 				  <textarea class="form-control" id="mod_direccion" name="mod_direccion" ></textarea>
 				</div>
 			  </div>
-			  
+
 			  <div class="form-group">
 				<label for="mod_estado" class="col-sm-3 control-label">Estado</label>
 				<div class="col-sm-8">
@@ -50,19 +56,22 @@
 				  </select>
 				</div>
 			  </div>
-			 
-			 
-			 
-			
 		  </div>
 		  <div class="modal-footer">
 			<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-			<button type="submit" class="btn btn-primary" id="actualizar_datos">Actualizar datos</button>
+			<button type="submit" class="btn btn-primary" id="actualizar_datos" onclick="hideModal()">Actualizar datos</button>
 		  </div>
 		  </form>
 		</div>
 	  </div>
-	</div>
+    </div>
+    <script>
+        function hideModal() {
+            setTimeout(function () {
+                $("#myModal2").modal('toggle');
+            }, 800);
+        }
+    </script>
 	<?php
 		}
-	?>
+    ?>

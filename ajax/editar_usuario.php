@@ -8,9 +8,9 @@ if (version_compare(PHP_VERSION, '5.3.7', '<')) {
     // (this library adds the PHP 5.5 password hashing functions to older versions of PHP)
     require_once("../libraries/password_compatibility_library.php");
 }		
-		if (empty($_POST['firstname2'])){
+		if (empty($_POST['firstname2'])) {
 			$errors[] = "Nombres vacíos";
-		} elseif (empty($_POST['lastname2'])){
+		} elseif (empty($_POST['lastname2'])) {
 			$errors[] = "Apellidos vacíos";
 		}  elseif (empty($_POST['user_name2'])) {
             $errors[] = "Nombre de usuario vacío";
@@ -65,7 +65,7 @@ if (version_compare(PHP_VERSION, '5.3.7', '<')) {
             $errors[] = "Un error desconocido ocurrió.";
         }
 		
-		if (isset($errors)){
+		if (isset($errors)) {
 			
 			?>
 			<div class="alert alert-danger" role="alert">
@@ -79,7 +79,7 @@ if (version_compare(PHP_VERSION, '5.3.7', '<')) {
 			</div>
 			<?php
 			}
-			if (isset($messages)){
+			if (isset($messages)) {
 				
 				?>
 				<div class="alert alert-success" role="alert">

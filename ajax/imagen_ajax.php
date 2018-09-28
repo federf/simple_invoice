@@ -2,7 +2,7 @@
 				/* Connect To Database*/
 				require_once ("../config/db.php");
 				require_once ("../config/conexion.php");
-				if (isset($_FILES["imagefile"])){
+				if (isset($_FILES["imagefile"])) {
 	
 				$target_dir="../img/";
 				$image_name = time()."_".basename($_FILES["imagefile"]["name"]);
@@ -24,7 +24,7 @@
 				
 				
 				/* Fin Validacion*/
-				if ($imageFileZise>0){
+				if ($imageFileZise>0) {
 					move_uploaded_file($_FILES["imagefile"]["tmp_name"], $target_file);
 					$logo_update="logo_url='img/$image_name' ";
 				
@@ -48,13 +48,13 @@
 		
 	?>
 	<?php 
-		if (isset($errors)){
+		if (isset($errors)) {
 	?>
 		<div class="alert alert-danger">
 			<button type="button" class="close" data-dismiss="alert">&times;</button>
 			<strong>Error! </strong>
 		<?php
-			foreach ($errors as $error){
+			foreach ($errors as $error) {
 				echo $error;
 			}
 		?>

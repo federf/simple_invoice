@@ -6,9 +6,9 @@
 	---------------------------*/
 include('is_logged.php');//Archivo verifica que el usario que intenta acceder a la URL esta logueado
 $session_id= session_id();
-if (isset($_POST['id'])){$id=$_POST['id'];}
-if (isset($_POST['cantidad'])){$cantidad=$_POST['cantidad'];}
-if (isset($_POST['precio_venta'])){$precio_venta=$_POST['precio_venta'];}
+if (isset($_POST['id'])) {$id=$_POST['id'];}
+if (isset($_POST['cantidad'])) {$cantidad=$_POST['cantidad'];}
+if (isset($_POST['precio_venta'])) {$precio_venta=$_POST['precio_venta'];}
 
 	/* Connect To Database*/
 	require_once ("../config/db.php");//Contiene las variables de configuracion para conectar a la base de datos

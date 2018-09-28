@@ -11,11 +11,11 @@
 	require_once ("../config/conexion.php");//Contiene funcion que conecta a la base de datos
 	
 	$action = (isset($_REQUEST['action'])&& $_REQUEST['action'] !=NULL)?$_REQUEST['action']:'';
-	if (isset($_GET['id'])){
+	if (isset($_GET['id'])) {
 		$numero_factura=intval($_GET['id']);
 		$del1="delete from facturas where numero_factura='".$numero_factura."'";
 		$del2="delete from detalle_factura where numero_factura='".$numero_factura."'";
-		if ($delete1=mysqli_query($con,$del1) and $delete2=mysqli_query($con,$del2)){
+		if ($delete1=mysqli_query($con,$del1) and $delete2=mysqli_query($con,$del2)) {
 			?>
 			<div class="alert alert-success alert-dismissible" role="alert">
 			  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -32,7 +32,7 @@
 			
 		}
 	}
-	if($action == 'ajax'){
+	if($action == 'ajax') {
 		// escaping, additionally removing everything that could be (html/javascript-) code
          $q = mysqli_real_escape_string($con,(strip_tags($_REQUEST['q'], ENT_QUOTES)));
 		  $sTable = "facturas, clientes, users";
@@ -61,7 +61,7 @@
 		$sql="SELECT * FROM  $sTable $sWhere LIMIT $offset,$per_page";
 		$query = mysqli_query($con, $sql);
 		//loop through fetched data
-		if ($numrows>0){
+		if ($numrows>0) {
 			echo mysqli_error($con);
 			?>
 			<div class="table-responsive">
@@ -77,7 +77,7 @@
 					
 				</tr>
 				<?php
-				while ($row=mysqli_fetch_array($query)){
+				while ($row=mysqli_fetch_array($query)) {
 						$id_factura=$row['id_factura'];
 						$numero_factura=$row['numero_factura'];
 						$fecha=date("d/m/Y", strtotime($row['fecha_factura']));
@@ -86,7 +86,7 @@
 						$email_cliente=$row['email_cliente'];
 						$nombre_vendedor=$row['firstname']." ".$row['lastname'];
 						$estado_factura=$row['estado_factura'];
-						if ($estado_factura==1){$text_estado="Pagada";$label_class='label-success';}
+						if ($estado_factura==1) {$text_estado="Pagada";$label_class='label-success';}
 						else{$text_estado="Pendiente";$label_class='label-warning';}
 						$total_venta=$row['total_venta'];
 					?>

@@ -20,7 +20,7 @@
 			!empty($_POST['moneda']) &&
 			!empty($_POST['direccion']) &&
 			!empty($_POST['ciudad']) 
-		){
+		) {
 		/* Connect To Database*/
 		require_once ("../config/db.php");//Contiene las variables de configuracion para conectar a la base de datos
 		require_once ("../config/conexion.php");//Contiene funcion que conecta a la base de datos
@@ -36,7 +36,7 @@
 		
 		$sql="UPDATE perfil SET nombre_empresa='".$nombre_empresa."', telefono='".$telefono."', email='".$email."', moneda='".$moneda."', direccion='".$direccion."', ciudad='".$ciudad."', estado='".$estado."', codigo_postal='$codigo_postal' WHERE id_perfil='1'";
 		$query_update = mysqli_query($con,$sql);
-			if ($query_update){
+			if ($query_update) {
 				$messages[] = "Datos han sido actualizados satisfactoriamente.";
 			} else{
 				$errors []= "Lo siento algo ha salido mal intenta nuevamente.".mysqli_error($con);
@@ -45,7 +45,7 @@
 			$errors []= "Error desconocido.";
 		}
 		
-		if (isset($errors)){
+		if (isset($errors)) {
 			
 			?>
 			<div class="alert alert-danger" role="alert">
@@ -59,7 +59,7 @@
 			</div>
 			<?php
 			}
-			if (isset($messages)){
+			if (isset($messages)) {
 				
 				?>
 				<div class="alert alert-success" role="alert">

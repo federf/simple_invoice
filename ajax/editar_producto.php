@@ -5,11 +5,11 @@
            $errors[] = "ID vacío";
         }else if (empty($_POST['mod_codigo'])) {
            $errors[] = "Código vacío";
-        } else if (empty($_POST['mod_nombre'])){
+        } else if (empty($_POST['mod_nombre'])) {
 			$errors[] = "Nombre del producto vacío";
-		} else if ($_POST['mod_estado']==""){
+		} else if ($_POST['mod_estado']=="") {
 			$errors[] = "Selecciona el estado del producto";
-		} else if (empty($_POST['mod_precio'])){
+		} else if (empty($_POST['mod_precio'])) {
 			$errors[] = "Precio de venta vacío";
 		} else if (
 			!empty($_POST['mod_id']) &&
@@ -17,7 +17,7 @@
 			!empty($_POST['mod_nombre']) &&
 			$_POST['mod_estado']!="" &&
 			!empty($_POST['mod_precio'])
-		){
+		) {
 		/* Connect To Database*/
 		require_once ("../config/db.php");//Contiene las variables de configuracion para conectar a la base de datos
 		require_once ("../config/conexion.php");//Contiene funcion que conecta a la base de datos
@@ -29,7 +29,7 @@
 		$id_producto=$_POST['mod_id'];
 		$sql="UPDATE products SET codigo_producto='".$codigo."', nombre_producto='".$nombre."', status_producto='".$estado."', precio_producto='".$precio_venta."' WHERE id_producto='".$id_producto."'";
 		$query_update = mysqli_query($con,$sql);
-			if ($query_update){
+			if ($query_update) {
 				$messages[] = "Producto ha sido actualizado satisfactoriamente.";
 			} else{
 				$errors []= "Lo siento algo ha salido mal intenta nuevamente.".mysqli_error($con);
@@ -38,7 +38,7 @@
 			$errors []= "Error desconocido.";
 		}
 		
-		if (isset($errors)){
+		if (isset($errors)) {
 			
 			?>
 			<div class="alert alert-danger" role="alert">
@@ -52,7 +52,7 @@
 			</div>
 			<?php
 			}
-			if (isset($messages)){
+			if (isset($messages)) {
 				
 				?>
 				<div class="alert alert-success" role="alert">

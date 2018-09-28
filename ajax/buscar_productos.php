@@ -12,12 +12,12 @@
 	//Archivo de funciones PHP
 	include("../funciones.php");
 	$action = (isset($_REQUEST['action'])&& $_REQUEST['action'] !=NULL)?$_REQUEST['action']:'';
-	if (isset($_GET['id'])){
+	if (isset($_GET['id'])) {
 		$id_producto=intval($_GET['id']);
 		$query=mysqli_query($con, "select * from detalle_factura where id_producto='".$id_producto."'");
 		$count=mysqli_num_rows($query);
-		if ($count==0){
-			if ($delete1=mysqli_query($con,"DELETE FROM products WHERE id_producto='".$id_producto."'")){
+		if ($count==0) {
+			if ($delete1=mysqli_query($con,"DELETE FROM products WHERE id_producto='".$id_producto."'")) {
 			?>
 			<div class="alert alert-success alert-dismissible" role="alert">
 			  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -46,7 +46,7 @@
 		
 		
 	}
-	if($action == 'ajax'){
+	if($action == 'ajax') {
 		// escaping, additionally removing everything that could be (html/javascript-) code
          $q = mysqli_real_escape_string($con,(strip_tags($_REQUEST['q'], ENT_QUOTES)));
 		 $aColumns = array('codigo_producto', 'nombre_producto');//Columnas de busqueda
@@ -79,7 +79,7 @@
 		$sql="SELECT * FROM  $sTable $sWhere LIMIT $offset,$per_page";
 		$query = mysqli_query($con, $sql);
 		//loop through fetched data
-		if ($numrows>0){
+		if ($numrows>0) {
 			$simbolo_moneda=get_row('perfil','moneda', 'id_perfil', 1);
 			?>
 			<div class="table-responsive">
@@ -94,12 +94,12 @@
 					
 				</tr>
 				<?php
-				while ($row=mysqli_fetch_array($query)){
+				while ($row=mysqli_fetch_array($query)) {
 						$id_producto=$row['id_producto'];
 						$codigo_producto=$row['codigo_producto'];
 						$nombre_producto=$row['nombre_producto'];
 						$status_producto=$row['status_producto'];
-						if ($status_producto==1){$estado="Activo";}
+						if ($status_producto==1) {$estado="Activo";}
 						else {$estado="Inactivo";}
 						$date_added= date('d/m/Y', strtotime($row['date_added']));
 						$precio_producto=$row['precio_producto'];

@@ -11,7 +11,7 @@
 	require_once ("../config/conexion.php");//Contiene funcion que conecta a la base de datos
 	
 	$action = (isset($_REQUEST['action'])&& $_REQUEST['action'] !=NULL)?$_REQUEST['action']:'';
-	if($action == 'ajax'){
+	if($action == 'ajax') {
 		// escaping, additionally removing everything that could be (html/javascript-) code
          $q = mysqli_real_escape_string($con,(strip_tags($_REQUEST['q'], ENT_QUOTES)));
 		 $aColumns = array('codigo_producto', 'nombre_producto');//Columnas de busqueda
@@ -43,7 +43,7 @@
 		$sql="SELECT * FROM  $sTable $sWhere LIMIT $offset,$per_page";
 		$query = mysqli_query($con, $sql);
 		//loop through fetched data
-		if ($numrows>0){
+		if ($numrows>0) {
 			
 			?>
 			<div class="table-responsive">
@@ -56,7 +56,7 @@
 					<th class='text-center' style="width: 36px;">Agregar</th>
 				</tr>
 				<?php
-				while ($row=mysqli_fetch_array($query)){
+				while ($row=mysqli_fetch_array($query)) {
 					$id_producto=$row['id_producto'];
 					$codigo_producto=$row['codigo_producto'];
 					$nombre_producto=$row['nombre_producto'];

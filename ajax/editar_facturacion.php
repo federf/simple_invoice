@@ -7,9 +7,9 @@
 include('is_logged.php');//Archivo verifica que el usario que intenta acceder a la URL esta logueado
 $id_factura= $_SESSION['id_factura'];
 $numero_factura= $_SESSION['numero_factura'];
-if (isset($_POST['id'])){$id=intval($_POST['id']);}
-if (isset($_POST['cantidad'])){$cantidad=intval($_POST['cantidad']);}
-if (isset($_POST['precio_venta'])){$precio_venta=floatval($_POST['precio_venta']);}
+if (isset($_POST['id'])) {$id=intval($_POST['id']);}
+if (isset($_POST['cantidad'])) {$cantidad=intval($_POST['cantidad']);}
+if (isset($_POST['precio_venta'])) {$precio_venta=floatval($_POST['precio_venta']);}
 
 	/* Connect To Database*/
 	require_once ("../config/db.php");//Contiene las variables de configuracion para conectar a la base de datos

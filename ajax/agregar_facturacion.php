@@ -37,7 +37,7 @@ $simbolo_moneda=get_row('perfil','moneda', 'id_perfil', 1);
 	<th></th>
 </tr>
 <?php
-	$sumador_total=0;
+	$suma_total=0;
 	$sql=mysqli_query($con, "select * from products, tmp where products.id_producto=tmp.id_producto and tmp.session_id='".$session_id."'");
 	while ($row=mysqli_fetch_array($sql))
 	{
@@ -53,7 +53,7 @@ $simbolo_moneda=get_row('perfil','moneda', 'id_perfil', 1);
 	$precio_total=$precio_venta_r*$cantidad;
 	$precio_total_f=number_format($precio_total,2);//Precio total formateado
 	$precio_total_r=str_replace(",","",$precio_total_f);//Reemplazo las comas
-	$sumador_total+=$precio_total_r;//Sumador
+	$suma_total+=$precio_total_r;//Sumador
 	
 		?>
 		<tr>
@@ -66,7 +66,7 @@ $simbolo_moneda=get_row('perfil','moneda', 'id_perfil', 1);
 		</tr>		
 		<?php
 	}
-	$total_factura=number_format($sumador_total,2,'.','');
+	$total_factura=number_format($suma_total,2,'.','');
 ?>
 <tr>
 	<td class='text-right' colspan=4>TOTAL <?php echo $simbolo_moneda;?></td>

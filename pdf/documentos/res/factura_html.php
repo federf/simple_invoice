@@ -52,8 +52,6 @@ table.page_footer {width: 100%; border: none; background-color: white; padding: 
     <?php include("encabezado_factura.php");?>
     <br>
 
-
-
     <table cellspacing="0" style="width: 100%; text-align: left; font-size: 11pt;">
         <tr>
            <td style="width:50%;" class='midnight-blue'>FACTURAR A</td>
@@ -123,7 +121,7 @@ table.page_footer {width: 100%; border: none; background-color: white; padding: 
 
 <?php
 $nums=1;
-$sumador_total=0;
+$suma_total=0;
 $sql=mysqli_query($con, "select * from products, tmp where products.id_producto=tmp.id_producto and tmp.session_id='".$session_id."'");
 while ($row=mysqli_fetch_array($sql))
 	{
@@ -139,7 +137,7 @@ while ($row=mysqli_fetch_array($sql))
 	$precio_total=$precio_venta_r*$cantidad;
 	$precio_total_f=number_format($precio_total,2);//Precio total formateado
 	$precio_total_r=str_replace(",","",$precio_total_f);//Reemplazo las comas
-	$sumador_total+=$precio_total_r;//Sumador
+	$suma_total+=$precio_total_r;//Sumador
 	if ($nums%2==0) {
 		$clase="clouds";
 	} else {
@@ -161,7 +159,7 @@ while ($row=mysqli_fetch_array($sql))
 
 	$nums++;
 	}
-	$total_factura=number_format($sumador_total,2,'.','');
+	$total_factura=number_format($suma_total,2,'.','');
 ?>
         <tr>
             <td colspan="3" style="widtd: 85%; text-align: right;">TOTAL <?php echo $simbolo_moneda;?> </td>

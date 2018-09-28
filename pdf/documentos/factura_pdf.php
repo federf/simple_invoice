@@ -1,16 +1,16 @@
 <?php
 	/*-------------------------
 	Autor: Federico Franco
-	Web: 
-	Mail: 
+	Web:
+	Mail:
 	---------------------------*/
 	session_start();
 	if (!isset($_SESSION['user_login_status']) AND $_SESSION['user_login_status'] != 1) {
         header("location: ../../login.php");
 		exit;
     }
-	
-	
+
+
 	/* Connect To Database*/
 	include("../../config/db.php");
 	include("../../config/conexion.php");
@@ -21,13 +21,13 @@
 	$count=mysqli_num_rows($sql_count);
 	if ($count==0)
 	{
-	echo "<script>alert('No hay productos agregados a la factura')</script>";
-	echo "<script>window.close();</script>";
-	exit;
+        echo "<script>alert('No hay productos agregados a la factura')</script>";
+        echo "<script>window.close();</script>";
+        exit;
 	}
 
 	require_once(dirname(__FILE__).'/../html2pdf.class.php');
-		
+
 	//Variables por GET
 	$id_cliente=intval($_GET['id_cliente']);
 	$id_vendedor=intval($_GET['id_vendedor']);
@@ -36,11 +36,11 @@
 	//Fin de variables por GET
 	$sql=mysqli_query($con, "select LAST_INSERT_ID(numero_factura) as last from facturas order by id_factura desc limit 0,1 ");
 	$rw=mysqli_fetch_array($sql);
-	$numero_factura=$rw['last']+1;	
+	$numero_factura=$rw['last']+1;
 	$simbolo_moneda=get_row('perfil','moneda', 'id_perfil', 1);
     // get the HTML
-     ob_start();
-     include(dirname('__FILE__').'/res/factura_html.php');
+    ob_start();
+    include(dirname('__FILE__').'/res/factura_html.php');
     $content = ob_get_clean();
 
     try

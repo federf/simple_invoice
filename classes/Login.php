@@ -83,9 +83,9 @@ class Login
                     if (password_verify($_POST['user_password'], $result_row->user_password_hash)) {
 
                         // write user data into PHP SESSION (a file on your server)
-                        $_SESSION['user_id'] = $result_row->user_id;
-						$_SESSION['user_name'] = $result_row->user_name;
-                        $_SESSION['user_email'] = $result_row->user_email;
+                        $_SESSION['user_id']           = $result_row->user_id;
+                        $_SESSION['user_name']         = $result_row->user_name;
+                        $_SESSION['user_email']        = $result_row->user_email;
                         $_SESSION['user_login_status'] = 1;
 
                     } else {
@@ -119,7 +119,7 @@ class Login
      */
     public function isUserLoggedIn()
     {
-        if (isset($_SESSION['user_login_status']) AND $_SESSION['user_login_status'] == 1) {
+        if (isset($_SESSION['user_login_status']) and $_SESSION['user_login_status'] == 1) {
             return true;
         }
         // default return

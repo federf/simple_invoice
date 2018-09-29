@@ -1,0 +1,6 @@
+{
+    "require": {
+        "afipsdk/afip.php": "^0.5.3",
+        "davedevelopment/phpmig": "^1.5"
+    }
+}

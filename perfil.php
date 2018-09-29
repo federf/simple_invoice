@@ -41,7 +41,7 @@
 
 
                     <div class="panel panel-info">
-                        <div class="panel-heading">
+                        <div class="panel-heading panel-heading-custom">
                             <h3 class="panel-title"><i class='glyphicon glyphicon-cog'></i> Configuración</h3>
                         </div>
                         <div class="panel-body">

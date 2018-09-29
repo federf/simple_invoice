@@ -4,8 +4,8 @@ http://work.smarchal.com/twbscolor/
 
 */
 .navbar-default {
-    background-color: #3498db;
-    border-color    : #2980b9;
+    background-color: darkslategray;
+    border-color    : grey;
 }
 
 .navbar-default .navbar-brand {
@@ -34,23 +34,23 @@ http://work.smarchal.com/twbscolor/
 .navbar-default .navbar-nav>.active>a:hover,
 .navbar-default .navbar-nav>.active>a:focus {
     color           : #ecdbff;
-    background-color: #2980b9;
+    background-color: grey;
 }
 
 .navbar-default .navbar-nav>.open>a,
 .navbar-default .navbar-nav>.open>a:hover,
 .navbar-default .navbar-nav>.open>a:focus {
     color: #ecdbff;
-    background-color: #2980b9;
+    background-color: grey;
 }
 
 .navbar-default .navbar-toggle {
-    border-color: #2980b9;
+    border-color: grey;
 }
 
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-    background-color: #2980b9;
+    background-color: grey;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -84,6 +84,34 @@ http://work.smarchal.com/twbscolor/
     .navbar-default .navbar-nav .open .dropdown-menu>.active>a:hover,
     .navbar-default .navbar-nav .open .dropdown-menu>.active>a:focus {
         color           : #ecdbff;
-        background-color: #2980b9;
+        background-color: grey;
     }
+}
+
+button.btn.btn-info {
+    background-color: rgb(99, 216, 99);
+    color           : black;
+    font-weight     : bold;
+}
+
+a.btn.btn-danger, a.btn.btn-default, a.btn.btn-success {
+    color      : black;
+    font-weight: bold;
+}
+
+span.pagination_arrow {
+    color : black;
+    background-color: darkslategrey;
+}
+
+.panel-info > .panel-heading-custom {
+    background-color: darkslategrey;
+    color           : white;
+    font-weight     : bold;
+}
+
+th.table_header {
+    background-color: darkslategrey;
+    color           : white;
+    font-weight     : bold;
 }

@@ -137,9 +137,9 @@ if ($action=='ajax') {
             <td><span class='pull-right'>
                     <?php echo $simbolo_moneda . ' '. number_format($precio_producto, 2);
             ?></span></td>
-            <td><span class="pull-right"><a href="#" class='btn btn-default' title='Editar producto' onclick="obtener_datos('<?php echo $id_producto; ?>');"
+            <td><span class="pull-right"><a href="#" class='btn btn-success' title='Editar producto' onclick="obtener_datos('<?php echo $id_producto; ?>');"
                         data-toggle="modal" data-target="#myModal2"><i class="glyphicon glyphicon-edit"></i></a><a href="#"
-                        class='btn btn-default' title='Borrar producto' onclick="eliminar('<?php echo $id_producto; ?>')"><i
+                        class='btn btn-danger' title='Borrar producto' onclick="eliminar('<?php echo $id_producto; ?>')"><i
                             class="glyphicon glyphicon-trash"></i></a></span></td>
         </tr>
         <?php

@@ -77,7 +77,7 @@
     <?php
 	include("footer.php");
 	?>
-    <script type="text/javascript" src="js/usuarios.js"></script>
+    <script type="text/javascript" src="js/usuarios/usuarios.js"></script>
 
 
 

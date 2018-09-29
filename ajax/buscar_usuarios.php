@@ -126,7 +126,7 @@ if ($action == 'ajax') {
 
             <td><span class="pull-right">
                     <a href="#" class='btn btn-success' title='Editar usuario' onclick="obtener_datos('<?php echo $user_id; ?>');"
-                        data-toggle="modal" data-target="#myModal2"><i class="glyphicon glyphicon-edit"></i></a>
+                        data-toggle="modal" data-target="#myModalEditUser"><i class="glyphicon glyphicon-edit"></i></a>
                     <a href="#" class='btn btn-default' title='Cambiar contraseña' onclick="get_user_id('<?php echo $user_id; ?>');"
                         data-toggle="modal" data-target="#myModal3"><i class="glyphicon glyphicon-cog"></i></a>
                     <a href="#" class='btn btn-danger' title='Borrar usuario' onclick="eliminar('<? echo $user_id; ?>')"><i

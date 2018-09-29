@@ -3,7 +3,7 @@
 		{
 	?>
 	<!-- Modal -->
-	<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal fade" id="myModalEditClient" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	  <div class="modal-dialog" role="document">
 		<div class="modal-content">
 		  <div class="modal-header">
@@ -68,7 +68,7 @@
     <script>
         function hideModal() {
             setTimeout(function () {
-                $("#myModal2").modal('toggle');
+                $("#myModalEditClient").modal('toggle');
             }, 800);
         }
     </script>

@@ -69,7 +69,7 @@
         <?php
         include("footer.php");
         ?>
-        <script type="text/javascript" src="js/productos.js"></script>
+        <script type="text/javascript" src="js/productos/productos.js"></script>
     </body>
 </html>
 <script>

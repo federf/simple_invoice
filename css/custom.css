@@ -94,15 +94,15 @@ button.btn.btn-info {
     font-weight     : bold;
 }
 
-a.btn.btn-danger, a.btn.btn-default, a.btn.btn-success {
+a.btn.btn-danger, a.btn.btn-default, a.btn.btn-success, button.btn-success {
     color      : black;
     font-weight: bold;
 }
 
-span.pagination_arrow {
-    color : black;
-    background-color: darkslategrey;
+.navbar-default .navbar-nav > li > a.btn-logout:hover {
+    background-color: rgb(172, 41, 37);
 }
+
 
 .panel-info > .panel-heading-custom {
     background-color: darkslategrey;
@@ -110,7 +110,7 @@ span.pagination_arrow {
     font-weight     : bold;
 }
 
-th.table_header {
+.table > tbody > tr.info > td, .table > tbody > tr.info > th, .table > tbody > tr > td.info, .table > tbody > tr > th.info, .table > tfoot > tr.info > td, .table > tfoot > tr.info > th, .table > tfoot > tr > td.info, .table > tfoot > tr > th.info, .table > thead > tr.info > td, .table > thead > tr.info > th, .table > thead > tr > td.info, .table > thead > tr > th.info {
     background-color: darkslategrey;
     color           : white;
     font-weight     : bold;

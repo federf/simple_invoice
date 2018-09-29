@@ -24,7 +24,7 @@
             <div class="panel panel-info">
                 <div class="panel-heading panel-heading-custom">
                     <div class="btn-group pull-right">
-                        <a href="nueva_factura.php" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span>
+                        <a href="nueva_factura.php" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>
                             Nueva Factura</a>
                     </div>
                     <h4><i class='glyphicon glyphicon-search'></i> Buscar Facturas</h4>

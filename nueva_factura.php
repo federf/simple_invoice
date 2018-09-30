@@ -70,8 +70,7 @@
                             </div>
                             <label for="tel2" class="col-md-1 control-label">Fecha</label>
                             <div class="col-md-2">
-                                <input type="text" class="form-control input-sm" id="fecha" value="<?php echo date(" d/m/Y");?>"
-                                    readonly>
+                                <input type="text"  size="10" class="form-control input-sm" id="fecha" value="<?php echo date(" d/m/Y");?>">
                             </div>
                             <label for="email" class="col-md-1 control-label">Pago</label>
                             <div class="col-md-3">
@@ -146,6 +145,9 @@
                     $("#tel1").val("");
                     $("#mail").val("");
                 }
+            });
+            $('#fecha').datepicker({
+                format : "d/m/Y"
             });
         </script>
     </body>

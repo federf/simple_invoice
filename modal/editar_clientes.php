@@ -23,7 +23,7 @@
               <div class="form-group">
 				<label for="mod_cuil_cuit" class="col-sm-3 control-label">CUIL/CUIT</label>
 				<div class="col-sm-8">
-				  <input type="text" class="form-control" id="mod_cuil_cuit" name="mod_cuil_cuit"  required>
+				  <input type="text" class="form-control" id="mod_cuil_cuit" name="mod_cuil_cuit">
 				</div>
 			  </div>
 			   <div class="form-group">
@@ -33,12 +33,6 @@
 				</div>
 			  </div>
 
-			  <div class="form-group">
-				<label for="mod_email" class="col-sm-3 control-label">Email</label>
-				<div class="col-sm-8">
-				 <input type="email" class="form-control" id="mod_email" name="mod_email">
-				</div>
-			  </div>
 			  <div class="form-group">
 				<label for="mod_direccion" class="col-sm-3 control-label">Dirección</label>
 				<div class="col-sm-8">

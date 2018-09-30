@@ -22,7 +22,7 @@
 			  <div class="form-group">
 				<label for="cuil_cuit" class="col-sm-3 control-label">Cuit/Cuil</label>
 				<div class="col-sm-8">
-				  <input type="text" class="form-control" id="cuil_cuit" name="cuil_cuit" required>
+				  <input type="text" class="form-control" id="cuil_cuit" name="cuil_cuit">
 				</div>
 			  </div>
 			  <div class="form-group">

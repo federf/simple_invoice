@@ -92,9 +92,6 @@
 				echo "Dirección : " . $rw_cliente['direccion_cliente'];
 				echo "<br>";
 				echo "Teléfono : " . $rw_cliente['telefono_cliente'];
-				echo "<br>";
-                echo "Email: ";
-				echo $rw_cliente['email_cliente'];
 			?>
 
             </td>

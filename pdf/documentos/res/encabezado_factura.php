@@ -21,8 +21,6 @@
                 <?php echo get_row('perfil','direccion', 'id_perfil', 1).", ". get_row('perfil','ciudad', 'id_perfil', 1)." ".get_row('perfil','estado', 'id_perfil', 1);?>
                 <br>
                 Teléfono: <?php echo get_row('perfil','telefono', 'id_perfil', 1);?>
-                <br>
-				Email: <?php echo get_row('perfil','email', 'id_perfil', 1);?>
             </td>
 			<td style="width: 25%;text-align:right">
 			FACTURA Nº <?php echo $numero_factura;?>

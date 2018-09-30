@@ -85,11 +85,6 @@ include("navbar.php");
                         <input type="text" class="form-control input-sm" id="tel1" placeholder="Teléfono" value="<?php echo $telefono_cliente;?>"
                             readonly>
                     </div>
-                    <label for="mail" class="col-md-1 control-label">Email</label>
-                    <div class="col-md-3">
-                        <input type="text" class="form-control input-sm" id="mail" placeholder="Email" readonly
-                            value="<?php echo $email_cliente;?>">
-                    </div>
                 </div>
                 <div class="form-group row">
                     <label for="empresa" class="col-md-1 control-label">Vendedor</label>

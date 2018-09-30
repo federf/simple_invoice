@@ -10,12 +10,11 @@
 		// escaping, additionally removing everything that could be (html/javascript-) code
 		$nombre     =mysqli_real_escape_string($con,(strip_tags($_POST["nombre"],ENT_QUOTES)));
 		$telefono   =mysqli_real_escape_string($con,(strip_tags($_POST["telefono"],ENT_QUOTES)));
-		$email      =mysqli_real_escape_string($con,(strip_tags($_POST["email"],ENT_QUOTES)));
 		$direccion  =mysqli_real_escape_string($con,(strip_tags($_POST["direccion"],ENT_QUOTES)));
 		$cuil_cuit  =mysqli_real_escape_string($con,(strip_tags($_POST["cuil_cuit"],ENT_QUOTES)));
 		$estado     =intval($_POST['estado']);
 		$date_added =date("Y-m-d H:i:s");
-		$sql        ="INSERT INTO clientes (nombre_cliente, telefono_cliente, email_cliente, direccion_cliente, status_cliente, date_added, cuil_cuit_cliente) VALUES ('$nombre','$telefono','$email','$direccion','$estado','$date_added', '$cuil_cuit')";
+		$sql        ="INSERT INTO clientes (nombre_cliente, telefono_cliente, direccion_cliente, status_cliente, date_added, cuil_cuit_cliente) VALUES ('$nombre','$telefono','$direccion','$estado','$date_added', '$cuil_cuit')";
 		$query_new_insert = mysqli_query($con,$sql);
 			if ($query_new_insert){
 				$messages[] = "Cliente ha sido ingresado satisfactoriamente.";

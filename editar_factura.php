@@ -63,7 +63,7 @@ include("navbar.php");
 ?>
 <div class="container">
     <div class="panel panel-info">
-        <div class="panel-heading">
+        <div class="panel-heading panel-heading-custom">
             <h4><i class='glyphicon glyphicon-edit'></i> Editar Factura</h4>
         </div>
         <div class="panel-body">
@@ -135,19 +135,19 @@ include("navbar.php");
 
                 <div class="col-md-12">
                     <div class="pull-right">
-                        <button type="submit" class="btn btn-default">
+                        <button type="submit" class="btn btn-success">
                             <span class="glyphicon glyphicon-refresh"></span> Actualizar datos
                         </button>
-                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#nuevoProducto">
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#nuevoProducto">
                             <span class="glyphicon glyphicon-plus"></span> Nuevo producto
                         </button>
-                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#nuevoCliente">
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#nuevoCliente">
                             <span class="glyphicon glyphicon-user"></span> Nuevo cliente
                         </button>
-                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
                             <span class="glyphicon glyphicon-search"></span> Agregar productos
                         </button>
-                        <button type="button" class="btn btn-default" onclick="imprimir_factura('<?php echo $id_factura;?>')">
+                        <button type="button" class="btn btn-success" onclick="imprimir_factura('<?php echo $id_factura;?>')">
                             <span class="glyphicon glyphicon-print"></span> Imprimir
                         </button>
                     </div>

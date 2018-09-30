@@ -167,7 +167,7 @@ include("navbar.php");
 include("footer.php");
 ?>
 <script type="text/javascript" src="js/VentanaCentrada.js"></script>
-<script type="text/javascript" src="js/editar_factura.js"></script>
+<script type="text/javascript" src="js/facturas/editar_factura.js"></script>
 <link rel="stylesheet" href="css/jquery-ui.css">
 <script src="js/jquery-3.0.0.js"></script>
 <script src="js/jquery-ui.js"></script>

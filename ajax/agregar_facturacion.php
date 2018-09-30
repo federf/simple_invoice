@@ -66,7 +66,7 @@ while ($row = mysqli_fetch_array($sql)) {
 			<td><?php echo $nombre_producto; ?></td>
 			<td class='text-right'><?php echo $precio_venta_f; ?></td>
 			<td class='text-right'><?php echo $precio_total_f; ?></td>
-			<td class='text-center'><a href="#" onclick="eliminar('<?php echo $id_tmp ?>')"><i class="glyphicon glyphicon-trash"></i></a></td>
+			<td class='text-center'><a class="btn btn-danger" href="#" onclick="eliminar('<?php echo $id_tmp ?>')"><i class="glyphicon glyphicon-trash"></i></a></td>
 		</tr>
 		<?php
 

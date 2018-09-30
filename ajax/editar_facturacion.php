@@ -1,8 +1,8 @@
 <?php
 	/*-------------------------
 	Autor: Federico Franco
-	Web: 
-	Mail: 
+	Web:
+	Mail:
 	---------------------------*/
 include('is_logged.php');//Archivo verifica que el usario que intenta acceder a la URL esta logueado
 $id_factura= $_SESSION['id_factura'];
@@ -23,7 +23,7 @@ $insert_tmp=mysqli_query($con, "INSERT INTO detalle_factura (numero_factura, id_
 }
 if (isset($_GET['id']))//codigo elimina un elemento del array
 {
-$id_detalle=intval($_GET['id']);	
+$id_detalle=intval($_GET['id']);
 $delete=mysqli_query($con, "DELETE FROM detalle_factura WHERE id_detalle='".$id_detalle."'");
 }
 $simbolo_moneda=get_row('perfil','moneda', 'id_perfil', 1);
@@ -46,8 +46,8 @@ $simbolo_moneda=get_row('perfil','moneda', 'id_perfil', 1);
 	$codigo_producto=$row['codigo_producto'];
 	$cantidad=$row['cantidad'];
 	$nombre_producto=$row['nombre_producto'];
-	
-	
+
+
 	$precio_venta=$row['precio_venta'];
 	$precio_venta_f=number_format($precio_venta,2);//Formateo variables
 	$precio_venta_r=str_replace(",","",$precio_venta_f);//Reemplazo las comas
@@ -55,7 +55,7 @@ $simbolo_moneda=get_row('perfil','moneda', 'id_perfil', 1);
 	$precio_total_f=number_format($precio_total,2);//Precio total formateado
 	$precio_total_r=str_replace(",","",$precio_total_f);//Reemplazo las comas
 	$suma_total+=$precio_total_r;//Sumador
-	
+
 		?>
 		<tr>
 			<td class='text-center'><?php echo $codigo_producto;?></td>
@@ -63,8 +63,8 @@ $simbolo_moneda=get_row('perfil','moneda', 'id_perfil', 1);
 			<td><?php echo $nombre_producto;?></td>
 			<td class='text-right'><?php echo $precio_venta_f;?></td>
 			<td class='text-right'><?php echo $precio_total_f;?></td>
-			<td class='text-center'><a href="#" onclick="eliminar('<?php echo $id_detalle ?>')"><i class="glyphicon glyphicon-trash"></i></a></td>
-		</tr>		
+			<td class='text-center'><a class="btn btn-danger" href="#" onclick="eliminar('<?php echo $id_detalle ?>')"><i class="glyphicon glyphicon-trash"></i></a></td>
+		</tr>
 		<?php
 	}
 	$total_factura=number_format($suma_total,2,'.','');

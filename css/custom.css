@@ -5,7 +5,7 @@ http://work.smarchal.com/twbscolor/
 */
 .navbar-default {
     background-color: darkslategray;
-    border-color    : grey;
+    border-color: grey;
 }
 
 .navbar-default .navbar-brand {
@@ -33,7 +33,7 @@ http://work.smarchal.com/twbscolor/
 .navbar-default .navbar-nav>.active>a,
 .navbar-default .navbar-nav>.active>a:hover,
 .navbar-default .navbar-nav>.active>a:focus {
-    color           : #ecdbff;
+    color: #ecdbff;
     background-color: grey;
 }
 
@@ -83,35 +83,57 @@ http://work.smarchal.com/twbscolor/
     .navbar-default .navbar-nav .open .dropdown-menu>.active>a,
     .navbar-default .navbar-nav .open .dropdown-menu>.active>a:hover,
     .navbar-default .navbar-nav .open .dropdown-menu>.active>a:focus {
-        color           : #ecdbff;
+        color: #ecdbff;
         background-color: grey;
     }
 }
 
 button.btn.btn-info {
     background-color: rgb(99, 216, 99);
-    color           : black;
-    font-weight     : bold;
-}
-
-a.btn.btn-danger, a.btn.btn-default, a.btn.btn-success, button.btn-success {
-    color      : black;
+    color: black;
     font-weight: bold;
 }
 
-.navbar-default .navbar-nav > li > a.btn-logout:hover {
+a.btn.btn-danger,
+a.btn.btn-default,
+a.btn.btn-success,
+button.btn-success {
+    color: black;
+    font-weight: bold;
+}
+
+.navbar-default .navbar-nav>li>a.btn-logout:hover {
     background-color: rgb(172, 41, 37);
 }
 
 
-.panel-info > .panel-heading-custom {
+.panel-info>.panel-heading-custom {
     background-color: darkslategrey;
-    color           : white;
-    font-weight     : bold;
+    color: white;
+    font-weight: bold;
 }
 
-.table > tbody > tr.info > td, .table > tbody > tr.info > th, .table > tbody > tr > td.info, .table > tbody > tr > th.info, .table > tfoot > tr.info > td, .table > tfoot > tr.info > th, .table > tfoot > tr > td.info, .table > tfoot > tr > th.info, .table > thead > tr.info > td, .table > thead > tr.info > th, .table > thead > tr > td.info, .table > thead > tr > th.info {
+.table>tbody>tr.info>td,
+.table>tbody>tr.info>th,
+.table>tbody>tr>td.info,
+.table>tbody>tr>th.info,
+.table>tfoot>tr.info>td,
+.table>tfoot>tr.info>th,
+.table>tfoot>tr>td.info,
+.table>tfoot>tr>th.info,
+.table>thead>tr.info>td,
+.table>thead>tr.info>th,
+.table>thead>tr>td.info,
+.table>thead>tr>th.info {
     background-color: darkslategrey;
-    color           : white;
-    font-weight     : bold;
+    color: white;
+    font-weight: bold;
+}
+
+.ui-widget-content .ui-icon {
+    background-image: url("../../images/ui-icons_ffffff_256x240.png") !important;
+}
+
+.ui-widget-header .ui-icon {
+    background-image: url("../../images/ui-icons_ffffff_256x240.png") !important;
 }

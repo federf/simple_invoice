@@ -107,7 +107,7 @@ include("navbar.php");
                     </div>
                     <label for="tel2" class="col-md-1 control-label">Fecha</label>
                     <div class="col-md-2">
-                        <input type="text" size="10" class="form-control input-sm" id="fecha" value="<?php echo $fecha_factura; ?>">
+                        <input type="text" size="10" class="form-control input-sm" id="fecha" name="fecha" value="<?php echo $fecha_factura; ?>">
                     </div>
                     <label for="email" class="col-md-1 control-label">Pago</label>
                     <div class="col-md-2">
@@ -175,9 +175,11 @@ include("footer.php");
 ?>
 <script type="text/javascript" src="js/VentanaCentrada.js"></script>
 <script type="text/javascript" src="js/facturas/editar_factura.js"></script>
-<link rel="stylesheet" href="css/jquery-ui.css">
+<link rel="stylesheet" href="css/jquery-ui.min.css">
 <script src="js/jquery-3.0.0.js"></script>
 <script src="js/jquery-ui.js"></script>
+<link rel="stylesheet" href="css/custom.css">
+<script src="js/general.js"></script>
 <script>
     $(function () {
         $("#nombre_cliente").autocomplete({
@@ -207,9 +209,8 @@ include("footer.php");
             $("#mail").val("");
         }
     });
-    $('#fecha').datepicker({
-        format : "d/m/Y"
-    });
+
+    $('#fecha').datepicker();
 </script>
 
 </body>

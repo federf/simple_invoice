@@ -78,14 +78,14 @@ if ($action == 'ajax') {
         </tr>
         <?php
         while ($row = mysqli_fetch_array($query)) {
-            $id_factura = $row['id_factura'];
-            $numero_factura = $row['numero_factura'];
-            $fecha = date("d/m/Y", strtotime($row['fecha_factura']));
-            $nombre_cliente = $row['nombre_cliente'];
+            $id_factura       = $row['id_factura'];
+            $numero_factura   = $row['numero_factura'];
+            $fecha            = date("d/m/Y", strtotime($row['fecha_factura']));
+            $nombre_cliente   = $row['nombre_cliente'];
             $telefono_cliente = $row['telefono_cliente'];
-            $email_cliente = $row['email_cliente'];
-            $nombre_vendedor = $row['firstname'] . " " . $row['lastname'];
-            $estado_factura = $row['estado_factura'];
+            $email_cliente    = $row['email_cliente'];
+            $nombre_vendedor  = $row['firstname'] . " " . $row['lastname'];
+            $estado_factura   = $row['estado_factura'];
             if ($estado_factura == 1) {
                 $text_estado = "Pagada";
                 $label_class = 'label-success';

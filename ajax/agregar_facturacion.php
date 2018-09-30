@@ -23,7 +23,6 @@ require_once("../config/conexion.php");//Contiene funcion que conecta a la base 
 include("../funciones.php");
 if (!empty($id) and !empty($cantidad) and !empty($precio_venta)) {
     $insert_tmp = mysqli_query($con, "INSERT INTO tmp (id_producto,cantidad_tmp,precio_tmp,session_id) VALUES ('$id','$cantidad','$precio_venta','$session_id')");
-
 }
 if (isset($_GET['id']))//codigo elimina un elemento del array
 {
@@ -43,21 +42,21 @@ $simbolo_moneda = get_row('perfil', 'moneda', 'id_perfil', 1);
 </tr>
 <?php
 $suma_total = 0;
-$sql = mysqli_query($con, "select * from products, tmp where products.id_producto=tmp.id_producto and tmp.session_id='" . $session_id . "'");
+$sql        = mysqli_query($con, "select * from products, tmp where products.id_producto=tmp.id_producto and tmp.session_id='" . $session_id . "'");
 while ($row = mysqli_fetch_array($sql)) {
-    $id_tmp = $row["id_tmp"];
+    $id_tmp          = $row["id_tmp"];
     $codigo_producto = $row['codigo_producto'];
-    $cantidad = $row['cantidad_tmp'];
+    $cantidad        = $row['cantidad_tmp'];
     $nombre_producto = $row['nombre_producto'];
 
 
-    $precio_venta = $row['precio_tmp'];
-    $precio_venta_f = number_format($precio_venta, 2);//Formateo variables
-    $precio_venta_r = str_replace(",", "", $precio_venta_f);//Reemplazo las comas
-    $precio_total = $precio_venta_r * $cantidad;
-    $precio_total_f = number_format($precio_total, 2);//Precio total formateado
-    $precio_total_r = str_replace(",", "", $precio_total_f);//Reemplazo las comas
-    $suma_total += $precio_total_r;//Sumador
+    $precio_venta    = $row['precio_tmp'];
+    $precio_venta_f  = number_format($precio_venta, 2);        //Formateo variables
+    $precio_venta_r  = str_replace(",", "", $precio_venta_f);  //Reemplazo las comas
+    $precio_total    = $precio_venta_r * $cantidad;
+    $precio_total_f  = number_format($precio_total, 2);        //Precio total formateado
+    $precio_total_r  = str_replace(",", "", $precio_total_f);  //Reemplazo las comas
+    $suma_total     += $precio_total_r;                        //Sumador
 
     ?>
 		<tr>

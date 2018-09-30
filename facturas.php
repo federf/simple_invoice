@@ -1,20 +1,20 @@
 <?php
-	session_start();
-	if (!isset($_SESSION['user_login_status']) AND $_SESSION['user_login_status'] != 1) {
-        header("location: login.php");
-		exit;
-        }
+session_start();
+if (!isset($_SESSION['user_login_status']) and $_SESSION['user_login_status'] != 1) {
+    header("location: login.php");
+    exit;
+}
 
-	$active_facturas  = "active";
-	$active_productos = "";
-	$active_clientes  = "";
-	$active_usuarios  = "";
-	$title            = "Facturas | Simple Invoice";
+$active_facturas  = "active";
+$active_productos = "";
+$active_clientes  = "";
+$active_usuarios  = "";
+$title            = "Facturas | Simple Invoice";
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php include("head.php");?>
+    <?php include("head.php"); ?>
 </head>
     <body>
         <?php
@@ -52,7 +52,7 @@
         </div>
         <hr>
         <?php
-            include("footer.php");
+        include("footer.php");
         ?>
         <script type="text/javascript" src="js/VentanaCentrada.js"></script>
         <script type="text/javascript" src="js/facturas/facturas.js"></script>

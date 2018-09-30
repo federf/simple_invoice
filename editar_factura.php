@@ -165,35 +165,6 @@ include("navbar.php");
 
         </div>
     </div>
-<<<<<<< 40ed2bbc6bd457e1787ddb4a6ca7d24ada7521f7
-    <hr>
-    <?php
-	include("footer.php");
-	?>
-    <script type="text/javascript" src="js/VentanaCentrada.js"></script>
-    <script type="text/javascript" src="js/facturas/editar_factura.js"></script>
-    <link rel="stylesheet" href="../css/jquery-ui.css">
-    <script src="../js/jquery-ui.js"></script>
-    <script>
-        $(function () {
-            $("#nombre_cliente").autocomplete({
-                source: "./ajax/autocomplete/clientes.php",
-                minLength: 2,
-                select: function (event, ui) {
-                    event.preventDefault();
-                    $('#id_cliente').val(ui.item.id_cliente);
-                    $('#nombre_cliente').val(ui.item.nombre_cliente);
-                    $('#tel1').val(ui.item.telefono_cliente);
-                    $('#mail').val(ui.item.email_cliente);
-
-
-                }
-            });
-
-
-        });
-=======
->>>>>>> fix jquery
 
 </div>
 <hr>

@@ -68,12 +68,13 @@
                 </td>
                 <td style="width: 50%; text-align: right">
                     &copy;
-                    <?php echo " "; echo  $anio=date('Y'); ?>
+                    <?php echo " ";
+                    echo $anio = date('Y'); ?>
                 </td>
             </tr>
         </table>
     </page_footer>
-    <?php include("encabezado_factura.php");?>
+    <?php include("encabezado_factura.php"); ?>
     <br>
 
     <table cellspacing="0" style="width: 100%; text-align: left; font-size: 11pt;">
@@ -83,16 +84,16 @@
         <tr>
             <td style="width:50%;">
                 <?php
-				$sql_cliente=mysqli_query($con,"select * from clientes where id_cliente='$id_cliente'");
-				$rw_cliente=mysqli_fetch_array($sql_cliente);
-				echo "Nombre y Apellido : " . $rw_cliente['nombre_cliente'];
-				echo "<br>";
+                $sql_cliente = mysqli_query($con, "select * from clientes where id_cliente='$id_cliente'");
+                $rw_cliente = mysqli_fetch_array($sql_cliente);
+                echo "Nombre y Apellido : " . $rw_cliente['nombre_cliente'];
+                echo "<br>";
                 echo "Cuil/Cuit : " . $rw_cliente['cuil_cuit_cliente'];
-				echo "<br>";
-				echo "Dirección : " . $rw_cliente['direccion_cliente'];
-				echo "<br>";
-				echo "Teléfono : " . $rw_cliente['telefono_cliente'];
-			?>
+                echo "<br>";
+                echo "Dirección : " . $rw_cliente['direccion_cliente'];
+                echo "<br>";
+                echo "Teléfono : " . $rw_cliente['telefono_cliente'];
+                ?>
 
             </td>
         </tr>
@@ -110,21 +111,26 @@
         <tr>
             <td style="width:35%;">
                 <?php
-				$sql_user=mysqli_query($con,"select * from users where user_id='$id_vendedor'");
-				$rw_user=mysqli_fetch_array($sql_user);
-				echo $rw_user['firstname']." ".$rw_user['lastname'];
-			?>
+                $sql_user = mysqli_query($con, "select * from users where user_id='$id_vendedor'");
+                $rw_user  = mysqli_fetch_array($sql_user);
+                echo $rw_user['firstname'] . " " . $rw_user['lastname'];
+                ?>
             </td>
             <td style="width:25%;">
-                <?php echo date("d/m/Y");?>
+                <?php echo date("d-m-Y", strtotime($fecha_factura)); ?>
             </td>
             <td style="width:40%;">
                 <?php
-				if ($condiciones==1) {echo "Efectivo";}
-				elseif ($condiciones==2) {echo "Cheque";}
-				elseif ($condiciones==3) {echo "Transferencia bancaria";}
-				elseif ($condiciones==4) {echo "Crédito";}
-				?>
+                if ($condiciones == 1) {
+                    echo "Efectivo";
+                } elseif ($condiciones == 2) {
+                    echo "Cheque";
+                } elseif ($condiciones == 3) {
+                    echo "Transferencia bancaria";
+                } elseif ($condiciones == 4) {
+                    echo "Crédito";
+                }
+                ?>
             </td>
         </tr>
     </table>
@@ -140,77 +146,68 @@
         </tr>
 
         <?php
-$nums=1;
-$suma_total=0;
-$sql=mysqli_query($con, "select * from products, tmp where products.id_producto=tmp.id_producto and tmp.session_id='".$session_id."'");
-while ($row=mysqli_fetch_array($sql))
-	{
-	$id_tmp=$row["id_tmp"];
-	$id_producto=$row["id_producto"];
-	$codigo_producto=$row['codigo_producto'];
-	$cantidad=$row['cantidad_tmp'];
-	$nombre_producto=$row['nombre_producto'];
+        $nums       = 1;
+        $suma_total = 0;
+        $sql        = mysqli_query($con, "select * from products, tmp where products.id_producto=tmp.id_producto and tmp.session_id='" . $session_id . "'");
+        while ($row = mysqli_fetch_array($sql)) {
+            $id_tmp          = $row["id_tmp"];
+            $id_producto     = $row["id_producto"];
+            $codigo_producto = $row['codigo_producto'];
+            $cantidad        = $row['cantidad_tmp'];
+            $nombre_producto = $row['nombre_producto'];
 
-	$precio_venta=$row['precio_tmp'];
-	$precio_venta_f=number_format($precio_venta,2);//Formateo variables
-	$precio_venta_r=str_replace(",","",$precio_venta_f);//Reemplazo las comas
-	$precio_total=$precio_venta_r*$cantidad;
-	$precio_total_f=number_format($precio_total,2);//Precio total formateado
-	$precio_total_r=str_replace(",","",$precio_total_f);//Reemplazo las comas
-	$suma_total+=$precio_total_r;//Sumador
-	if ($nums%2==0) {
-		$clase="clouds";
-	} else {
-		$clase="silver";
-	}
-	?>
+            $precio_venta    = $row['precio_tmp'];
+            $precio_venta_f  = number_format($precio_venta, 2);        //Formateo variables
+            $precio_venta_r  = str_replace(",", "", $precio_venta_f);  //Reemplazo las comas
+            $precio_total    = $precio_venta_r * $cantidad;
+            $precio_total_f  = number_format($precio_total, 2);        //Precio total formateado
+            $precio_total_r  = str_replace(",", "", $precio_total_f);  //Reemplazo las comas
+            $suma_total     += $precio_total_r;                        //Sumador
+            if ($nums % 2 == 0) {
+                $clase = "clouds";
+            } else {
+                $clase = "silver";
+            }
+            ?>
 
         <tr>
-            <td class='<?php echo $clase;?>' style="width: 10%; text-align: center">
+            <td class='<?php echo $clase; ?>' style="width: 10%; text-align: center">
                 <?php echo $cantidad; ?>
             </td>
-            <td class='<?php echo $clase;?>' style="width: 60%; text-align: left">
-                <?php echo $nombre_producto;?>
+            <td class='<?php echo $clase; ?>' style="width: 60%; text-align: left">
+                <?php echo $nombre_producto; ?>
             </td>
-            <td class='<?php echo $clase;?>' style="width: 15%; text-align: right">
-                <?php echo $precio_venta_f;?>
+            <td class='<?php echo $clase; ?>' style="width: 15%; text-align: right">
+                <?php echo $precio_venta_f; ?>
             </td>
-            <td class='<?php echo $clase;?>' style="width: 15%; text-align: right">
-                <?php echo $precio_total_f;?>
+            <td class='<?php echo $clase; ?>' style="width: 15%; text-align: right">
+                <?php echo $precio_total_f; ?>
             </td>
 
         </tr>
 
         <?php
 	//Insert en la tabla detalle_cotizacion
-	$insert_detail=mysqli_query($con, "INSERT INTO detalle_factura VALUES ('','$numero_factura','$id_producto','$cantidad','$precio_venta_r')");
+        $insert_detail = mysqli_query($con, "INSERT INTO detalle_factura VALUES ('','$numero_factura','$id_producto','$cantidad','$precio_venta_r')");
 
-	$nums++;
-	}
-	$total_factura=number_format($suma_total,2,'.','');
-?>
+        $nums++;
+    }
+    $total_factura = number_format($suma_total, 2, '.', '');
+    ?>
         <tr>
             <td colspan="3" style="width: 85%; text-align: right;">TOTAL
-                <?php echo $simbolo_moneda;?>
+                <?php echo $simbolo_moneda; ?>
             </td>
             <td style="width: 15%; text-align: right;">
-                <?php echo number_format($total_factura,2);?>
+                <?php echo number_format($total_factura, 2); ?>
             </td>
         </tr>
     </table>
-
-
-
     <br>
     <div style="font-size:11pt;text-align:center;font-weight:bold">Gracias por su compra!</div>
-
-
-
-
 </page>
 
 <?php
-$date=date("Y-m-d H:i:s");
-$insert=mysqli_query($con,"INSERT INTO facturas VALUES (NULL,'$numero_factura','$date','$id_cliente','$id_vendedor','$condiciones','$total_factura','1')");
-$delete=mysqli_query($con,"DELETE FROM tmp WHERE session_id='".$session_id."'");
+$insert = mysqli_query($con, "INSERT INTO facturas VALUES (NULL,'$numero_factura','$fecha_factura','$id_cliente','$id_vendedor','$condiciones','$total_factura','1')");
+$delete = mysqli_query($con, "DELETE FROM tmp WHERE session_id='" . $session_id . "'");
 ?>

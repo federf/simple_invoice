@@ -25,7 +25,7 @@
         ?>
         <div class="container">
             <div class="panel panel-info">
-                <div class="panel-heading panel-heading-custom">
+                <div class="panel-heading">
                     <h4><i class='glyphicon glyphicon-edit'></i> Nueva Factura</h4>
                 </div>
                 <div class="panel-body">
@@ -117,9 +117,16 @@
         include("footer.php");
         ?>
         <script type="text/javascript" src="js/VentanaCentrada.js"></script>
+<<<<<<< 40ed2bbc6bd457e1787ddb4a6ca7d24ada7521f7
         <script type="text/javascript" src="js/facturas/nueva_factura.js"></script>
         <link rel="stylesheet" href="../css/jquery-ui.css">
         <script src="../js/jquery-ui.js"></script>
+=======
+        <script type="text/javascript" src="js/nueva_factura.js"></script>
+        <link rel="stylesheet" href="css/jquery-ui.css">
+        <script src="js/jquery-3.0.0.js"></script>
+        <script src="js/jquery-ui.js"></script>
+>>>>>>> fix jquery
         <script>
             $(function () {
                 $("#nombre_cliente").autocomplete({

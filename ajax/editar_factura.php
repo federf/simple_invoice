@@ -3,7 +3,7 @@
 
 	$id_factura= $_SESSION['id_factura'];
 	/*Inicia validacion del lado del servidor*/
-	if (empty($_POST['id_cliente'])) {
+	if (empty($_POST['id_cliente']) && $_POST['id_cliente'] != 0) {
            $errors[] = "ID vacío";
         }else if (empty($_POST['id_vendedor'])) {
            $errors[] = "Selecciona el vendedor";
@@ -12,7 +12,7 @@
 		} else if ($_POST['estado_factura']=="") {
 			$errors[] = "Selecciona el estado de la factura";
 		} else if (
-			!empty($_POST['id_cliente']) &&
+			(!empty($_POST['id_cliente']) || $_POST['id_cliente'] == 0) &&
 			!empty($_POST['id_vendedor']) &&
             !empty($_POST['condiciones']) &&
             !empty($_POST['fecha']) &&
@@ -26,8 +26,9 @@
 		$id_vendedor    = intval($_POST['id_vendedor']);
         $condiciones    = intval($_POST['condiciones']);
         $fecha_factura  = date("Y-m-d H:i:s", strtotime(str_replace('/', '-', $_POST['fecha'])));
-        $estado_factura = intval($_POST['estado_factura']);
-        $sql="UPDATE facturas SET id_cliente='".$id_cliente."', id_vendedor='".$id_vendedor."', condiciones='".$condiciones."', estado_factura='".$estado_factura."', fecha_factura='".$fecha_factura."' WHERE id_factura='".$id_factura."'";
+		$estado_factura = intval($_POST['estado_factura']);
+		$factura_activa = intval($_POST['factura_activa']);
+        $sql="UPDATE facturas SET id_cliente='".$id_cliente."', id_vendedor='".$id_vendedor."', condiciones='".$condiciones."', estado_factura='".$estado_factura."', fecha_factura='".$fecha_factura."', factura_activa='".$factura_activa."'  WHERE id_factura='".$id_factura."'";
 
 		$query_update = mysqli_query($con,$sql);
 			if ($query_update) {

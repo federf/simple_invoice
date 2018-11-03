@@ -13,9 +13,8 @@ require_once("../config/conexion.php");//Contiene funcion que conecta a la base 
 $action = (isset($_REQUEST['action']) && $_REQUEST['action'] != null) ? $_REQUEST['action'] : '';
 if (isset($_GET['id'])) {
     $numero_factura = intval($_GET['id']);
-    $del1 = "delete from facturas where numero_factura='" . $numero_factura . "'";
-    $del2 = "delete from detalle_factura where numero_factura='" . $numero_factura . "'";
-    if ($delete1 = mysqli_query($con, $del1) and $delete2 = mysqli_query($con, $del2)) {
+    $del1 = "update facturas  set factura_activa = 0 where numero_factura='" . $numero_factura . "'";
+    if ($delete1 = mysqli_query($con, $del1)) {
         ?>
 <div class="alert alert-success alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -72,6 +71,7 @@ if ($action == 'ajax') {
             <th>Cliente</th>
             <th>Vendedor</th>
             <th>Estado</th>
+            <th>¿Activa?</th>
             <th class='text-right'>Total</th>
             <th class='text-right'>Acciones</th>
 
@@ -93,6 +93,13 @@ if ($action == 'ajax') {
                 $text_estado = "Pendiente";
                 $label_class = 'label-warning';
             }
+
+            $texto_activa = "Si";
+            $label_class_activa = 'label-success';
+            if ($row['factura_activa'] == 0) {
+                $texto_activa = "No";
+                $label_class_activa = 'label-warning';
+            }
             $total_venta = $row['total_venta'];
             ?>
         <tr>
@@ -109,6 +116,11 @@ if ($action == 'ajax') {
             </td>
             <td><span class="label <?php echo $label_class; ?>">
                     <?php echo $text_estado; ?></span></td>
+            <td>
+                <span class="label <?php echo $label_class_activa; ?>">
+                    <?php echo $texto_activa; ?>
+                </span>
+            </td>
             <td class='text-right'>
                 <?php echo number_format($total_venta, 2); ?>
             </td>
@@ -117,8 +129,8 @@ if ($action == 'ajax') {
                         class="glyphicon glyphicon-edit"></i></a>
                 <a href="#" class='btn btn-default' title='Descargar factura' onclick="imprimir_factura('<?php echo $id_factura; ?>');"><i
                         class="glyphicon glyphicon-download"></i></a>
-                <a href="#" class='btn btn-danger' title='Borrar factura' onclick="eliminar('<?php echo $numero_factura; ?>')"><i
-                        class="glyphicon glyphicon-trash"></i> </a>
+                <!--<a href="#" class='btn btn-danger' title='Desactivar' onclick="eliminar('<?php echo $numero_factura; ?>')"><i
+                        class="glyphicon glyphicon-trash"></i> </a>-->
             </td>
 
         </tr>

@@ -19,7 +19,7 @@ require_once("config/db.php");//Contiene las variables de configuracion para con
 require_once("config/conexion.php");//Contiene funcion que conecta a la base de datos
 if (isset($_GET['id_factura'])) {
     $id_factura  = intval($_GET['id_factura']);
-    $campos      = "clientes.id_cliente, clientes.nombre_cliente, clientes.telefono_cliente, clientes.email_cliente, facturas.id_vendedor, facturas.fecha_factura, facturas.condiciones, facturas.estado_factura, facturas.numero_factura";
+    $campos      = "clientes.id_cliente, clientes.nombre_cliente, clientes.telefono_cliente, clientes.email_cliente, facturas.id_vendedor, facturas.fecha_factura, facturas.condiciones, facturas.estado_factura, facturas.numero_factura, facturas.factura_activa";
     $sql_factura = mysqli_query($con, "select $campos from facturas, clientes where facturas.id_cliente=clientes.id_cliente and id_factura='" . $id_factura . "'");
     $count = mysqli_num_rows($sql_factura);
     if ($count == 1) {
@@ -33,6 +33,7 @@ if (isset($_GET['id_factura'])) {
         $condiciones      = $rw_factura['condiciones'];
         $estado_factura   = $rw_factura['estado_factura'];
         $numero_factura   = $rw_factura['numero_factura'];
+        $factura_activa   = $rw_factura['factura_activa'];
 
         $_SESSION['id_factura']     = $id_factura;
         $_SESSION['numero_factura'] = $numero_factura;
@@ -79,6 +80,17 @@ include("navbar.php");
                     <div class="col-md-2">
                         <input type="text" class="form-control input-sm" id="tel1" placeholder="Teléfono" value="<?php echo $telefono_cliente; ?>"
                             readonly>
+                    </div>
+                    <label for="tel1" class="col-md-1 control-label">Activa</label>
+                    <div class="col-md-2">
+                        <select class='form-control input-sm ' id="factura_activa" name="factura_activa">
+                            <option value="1" <?php if ($factura_activa == 1) {
+                                                    echo "selected";
+                                                } ?>>Si</option>
+                            <option value="0" <?php if ($factura_activa == 0) {
+                                                    echo "selected";
+                                                } ?>>No</option>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group row">

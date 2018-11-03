@@ -208,6 +208,6 @@
 </page>
 
 <?php
-$insert = mysqli_query($con, "INSERT INTO facturas VALUES (NULL,'$numero_factura','$fecha_factura','$id_cliente','$id_vendedor','$condiciones','$total_factura','1')");
+$insert = mysqli_query($con, "INSERT INTO facturas VALUES (NULL,'$numero_factura','$fecha_factura','$id_cliente','$id_vendedor','$condiciones','$total_factura','1', '1')");
 $delete = mysqli_query($con, "DELETE FROM tmp WHERE session_id='" . $session_id . "'");
 ?>

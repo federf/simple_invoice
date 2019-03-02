@@ -22,9 +22,6 @@
                 <br>
                 Teléfono: <?php echo get_row('perfil','telefono', 'id_perfil', 1);?>
             </td>
-			<td style="width: 25%;text-align:right">
-			PRESUPUESTO Nº <?php echo $numero_factura;?>
-			</td>
 
         </tr>
     </table>

@@ -14,13 +14,6 @@
 			<form class="form-horizontal" method="post" id="guardar_producto" name="guardar_producto">
 			<div id="resultados_ajax_productos"></div>
 			  <div class="form-group">
-				<label for="codigo" class="col-sm-3 control-label">Código</label>
-				<div class="col-sm-8">
-				  <input type="text" class="form-control" id="codigo" name="codigo" placeholder="Código del producto" required>
-				</div>
-			  </div>
-			  
-			  <div class="form-group">
 				<label for="nombre" class="col-sm-3 control-label">Nombre</label>
 				<div class="col-sm-8">
 					<textarea class="form-control" id="nombre" name="nombre" placeholder="Nombre del producto" required maxlength="255" ></textarea>

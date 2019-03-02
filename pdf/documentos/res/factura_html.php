@@ -169,7 +169,8 @@
                 $clase = "silver";
             }
             ?>
-
+            <?php 
+?>
         <tr>
             <td class='<?php echo $clase; ?>' style="width: 10%; text-align: center">
                 <?php echo $cantidad; ?>
@@ -188,7 +189,7 @@
 
         <?php
 	//Insert en la tabla detalle_cotizacion
-        $insert_detail = mysqli_query($con, "INSERT INTO detalle_factura VALUES ('','$numero_factura','$id_producto','$cantidad','$precio_venta_r')");
+        $insert_detail = mysqli_query($con, "INSERT INTO detalle_factura (numero_factura, id_producto, cantidad, precio_venta) VALUES ('" . $numero_factura ."', '" . $id_producto ."','" . $cantidad . "','" . $precio_venta_r."')");
 
         $nums++;
     }
@@ -208,6 +209,6 @@
 </page>
 
 <?php
-$insert = mysqli_query($con, "INSERT INTO facturas VALUES (NULL,'$numero_factura','$fecha_factura','$id_cliente','$id_vendedor','$condiciones','$total_factura','1')");
+$insert = mysqli_query($con, "INSERT INTO facturas (numero_factura, fecha_factura, id_cliente, id_vendedor, condiciones, total_venta, estado_factura) VALUES (" . $numero_factura . ", '" . $fecha_factura . "', " . $id_cliente . ", " . $id_vendedor . ", " . $condiciones . ", " . $total_factura . ", 1)");
 $delete = mysqli_query($con, "DELETE FROM tmp WHERE session_id='" . $session_id . "'");
 ?>

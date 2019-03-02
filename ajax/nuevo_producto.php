@@ -1,16 +1,13 @@
 <?php
 include('is_logged.php');//Archivo verifica que el usario que intenta acceder a la URL esta logueado
 	/*Inicia validacion del lado del servidor*/
-	if (empty($_POST['codigo'])) {
-           $errors[] = "Código vacío";
-        } else if (empty($_POST['nombre'])) {
+	if (empty($_POST['nombre'])) {
 			$errors[] = "Nombre del producto vacío";
 		} else if ($_POST['estado']=="") {
 			$errors[] = "Selecciona el estado del producto";
 		} else if (empty($_POST['precio'])) {
 			$errors[] = "Precio de venta vacío";
 		} else if (
-			!empty($_POST['codigo']) &&
 			!empty($_POST['nombre']) &&
 			$_POST['estado']!="" &&
 			!empty($_POST['precio'])
@@ -19,7 +16,9 @@ include('is_logged.php');//Archivo verifica que el usario que intenta acceder a 
 		require_once ("../config/db.php");//Contiene las variables de configuracion para conectar a la base de datos
 		require_once ("../config/conexion.php");//Contiene funcion que conecta a la base de datos
 		// escaping, additionally removing everything that could be (html/javascript-) code
-		$codigo=mysqli_real_escape_string($con,(strip_tags($_POST["codigo"],ENT_QUOTES)));
+		$sql            = mysqli_query($con, "select LAST_INSERT_ID(codigo_producto) as last from products order by id_producto desc limit 0,1");
+		$rw             = mysqli_fetch_array($sql);
+		$codigo = $rw['last']+1;
 		$nombre=mysqli_real_escape_string($con,(strip_tags($_POST["nombre"],ENT_QUOTES)));
 		$estado=intval($_POST['estado']);
 		$precio_venta=floatval($_POST['precio']);

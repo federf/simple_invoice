@@ -45,7 +45,7 @@ if ($action == 'ajax') {
 
         ?>
 			<div class="table-responsive">
-			  <table class="table">
+			  <table class="table" id="products_table">
 				<tr  class="warning">
 					<th>Código</th>
 					<th>Producto</th>
@@ -61,7 +61,7 @@ if ($action == 'ajax') {
         $precio_venta    = $row["precio_producto"];
         $precio_venta    = number_format($precio_venta, 2, '.', '');
     ?>
-        <tr>
+        <tr id="tr_producto_<?=$id_producto?>">
             <td><?php echo $codigo_producto; ?></td>
             <td><?php echo $nombre_producto; ?></td>
             <td class='col-xs-1'>

@@ -19,6 +19,9 @@ function load(page) {
 }
 
 function agregar(id) {
+    $('#products_table tr').css("background-color", "white");
+    $("#tr_producto_" + id).css("background-color", "#a9bed4");
+    console.log("hola");
     var precio_venta = document.getElementById('precio_venta_' + id).value;
     var cantidad = document.getElementById('cantidad_' + id).value;
     //Inicia validacion
